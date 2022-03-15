@@ -3,6 +3,10 @@ pipeline {
   tools {
       maven 'M2_HOME'
   }
+  environment {
+    registry = "gacobby/devop-pipeline"
+    registryCredential = 'dockerhub'
+  }
   stages {
     stage('Build'){
       steps {
@@ -21,12 +25,6 @@ pipeline {
       steps {
         echo "deploy step"
         sleep 10
-      }
-    }
-     stage('docker'){
-      steps {
-        echo "image step"
-        sleep 7
       }
     }
   }
